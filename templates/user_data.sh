@@ -5,7 +5,7 @@ dnf update -y
 dnf install mariadb105-server -y 
 yum install -y python3 pip ncurses-compat-libs
 
-DD_API_KEY=b0e2d9cf56224f9f8223569e044319f9 DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://install.datadoghq.com/scripts/install_script_agent7.sh)"
+DD_API_KEY=${{ secrets.DD_API_KEY }} DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://install.datadoghq.com/scripts/install_script_agent7.sh)"
 
 # Install pip and Flask
 pip3 install flask mysql-connector-python pymysql
