@@ -33,12 +33,13 @@ This project deploys a scalable "Hello World" web application using Infrastructu
 - **RDS MySQL Database**: Stores the "Hello World" message.
 
 ## Monitoring
-CloudWatch monitors:
+DataDog monitors:
 - **EC2 CPU Usage**: Ensures servers scale to handle traffic.
-- **Database Connections and Latency**: Monitors response times.
-- **Request Rates and Response Times**: Tracks user experience.
 
 **Why These Metrics?** These metrics help monitor application performance, ensuring reliability and readiness for scaling.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+<img width="1428" alt="image" src="https://github.com/user-attachments/assets/d64bd343-b155-4e26-9429-eddd035d1abb">
