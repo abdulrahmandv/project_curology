@@ -1,7 +1,6 @@
 #!/bin/bash
 # Update and install required packages
 
-yum update -y
 dnf update -y
 dnf install mariadb105-server -y 
 yum install -y python3 pip ncurses-compat-libs
