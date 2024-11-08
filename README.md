@@ -38,8 +38,7 @@ DataDog monitors:
 
 **Why These Metrics?** These metrics help monitor application performance, ensuring reliability and readiness for scaling.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+**DATADOG Monitoring** 
 
 
 <img width="1428" alt="image" src="https://github.com/user-attachments/assets/d64bd343-b155-4e26-9429-eddd035d1abb">
