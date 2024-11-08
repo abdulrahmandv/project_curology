@@ -6,7 +6,7 @@ This project deploys a scalable "Hello World" web application using Infrastructu
 - **IaC Tool**: Terraform on AWS.
 - **App**: Flask (Python) application displaying "Hello World" from an RDS MySQL database.
 - **Monitoring**: AWS CloudWatch for system and application performance.
-- **Security**: VPC, Security Groups, WAF, and IAM roles for secure access.
+- **Security**: VPC, Security Groups
 
 ## Prerequisites
 - **AWS Account**
