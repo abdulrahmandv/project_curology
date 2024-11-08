@@ -194,7 +194,7 @@ module "alb" {
   alb_name                   = "web-alb"
   security_group_ids         = [module.web_sg.sg.id]
   subnet_ids                 = local.public_subnet_ids
-  enable_deletion_protection = true
+  enable_deletion_protection = false
   idle_timeout               = 60
   target_group_arn           = module.target_group.target_group_arn
 }
