@@ -11,13 +11,9 @@ DD_API_KEY=${{ secrets.DD_API_KEY }} DD_SITE="us5.datadoghq.com" bash -c "$(curl
 pip3 install flask mysql-connector-python pymysql
 
 # Set environment variables for database connection
-export DB_HOST="my-database.cg5rarw5igck.us-east-1.rds.amazonaws.com"
-export DB_USER="admin"
-export DB_PASS="securepassword"
-export DB_NAME="hello_world_db"
-export DB_PORT="3306"
+export DB_NAME="helloworld"
 
-mysql -h $DB_HOST -u $DB_USER -P $DB_PORT -p$DB_PASS -D $DB_NAME <<EOF
+mysql -h ${db_hostname} -u ${db_username} -P ${db_port} -p${db_password} -D $DB_NAME <<EOF
 CREATE TABLE IF NOT EXISTS messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     message VARCHAR(255) NOT NULL
@@ -34,9 +30,9 @@ app = Flask(__name__)
 
 def get_db_connection():
     return pymysql.connect(
-        host="my-database.cg5rarw5igck.us-east-1.rds.amazonaws.com",
-        user="admin",
-        password="securepassword",
+        host=${db_hostname},
+        user=${db_username},
+        password=${db_password},
         database="helloworld"
     )
 

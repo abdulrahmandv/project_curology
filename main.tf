@@ -8,8 +8,8 @@ module "vpc" {
 }
 
 locals {
-  private_subnet_ids    = [for i in module.vpc.private_subnets : i.id]
-  public_subnet_ids     = [for i in module.vpc.public_subnets : i.id]
+  private_subnet_ids = [for i in module.vpc.private_subnets : i.id]
+  public_subnet_ids  = [for i in module.vpc.public_subnets : i.id]
 }
 
 module "rds" {
@@ -151,10 +151,14 @@ module "launch_template" {
   #iam_instance_profile       = "your-iam-instance-profile"
   associate_public_ip_address = true
   subnet_id                   = local.public_subnet_ids[0]
-  user_data                   = file("templates/user_data.sh")
-  root_volume_device_name     = "/dev/xvda"
-  root_volume_size            = 10
-  root_volume_type            = "gp2"
+  user_data = templatefile("templates/user_data.sh", { db_port = 3306,
+    db_hostname     = module.rds.db_instance_endpoint,
+    db_password = module.rds.db_password,
+    db_username = module.rds.db_username,
+  })
+  root_volume_device_name = "/dev/xvda"
+  root_volume_size        = 10
+  root_volume_type        = "gp2"
   instance_tags = {
     Name = "web-instance"
     Env  = "production"

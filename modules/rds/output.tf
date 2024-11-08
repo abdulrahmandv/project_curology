@@ -12,3 +12,10 @@ output "db_instance_arn" {
   description = "The RDS instance ARN"
   value       = aws_db_instance.this.arn
 }
+output "db_password" {
+  value = aws_db_instance.this.password
+}
+
+output "db_username" {
+  value = aws_db_instance.this.username
+}
